@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 import pandas as pd
@@ -7,7 +8,8 @@ import numpy as np
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score, roc_auc_score, confusion_matrix
 
 # Importing Dataset
-df = pd.read_csv('/Users/kianmhz/Desktop/ML-Project/dataset/fraud_oracle_preprocessed.csv')
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+df = pd.read_csv(os.path.join(base_dir, "dataset", "fraud_oracle_preprocessed.csv"))
 
 # --------------------------------------------------------------
 # Seperating Numerical and Categorical features
